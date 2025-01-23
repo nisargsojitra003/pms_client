@@ -28,6 +28,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [],
@@ -63,6 +64,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatNativeDateModule,
     NgxMaterialTimepickerModule,
     MatAutocompleteModule,
+    MatCardModule
   ],
   exports: [
     MatButtonModule,
@@ -94,6 +96,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatNativeDateModule,
     NgxMaterialTimepickerModule,
     MatAutocompleteModule,
+    MatCardModule
   ],
 })
 export class MaterialModule {}

@@ -20,7 +20,6 @@ import {
 } from '@angular/material/core';
 import { ActiveClassOnRouteDirective } from './core/directives/active-class-on-route.directive';
 import { ProductModule } from './product/product.module';
-import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import { TopbarComponent } from './core/layout/topbar/topbar.component';
 import { FooterComponent } from './core/layout/footer/footer.component';
 import { SidebarComponent } from './core/layout/sidebar/sidebar.component';
@@ -63,12 +62,8 @@ export const CUSTOM_DATE_FORMATS = {
   providers: [
     provideAnimationsAsync('noop'),
     { provide: MAT_DATE_LOCALE, useValue: 'en-US' }, // Set locale
-    {
-      provide: DateAdapter,
-      useClass: MomentDateAdapter,
-      deps: [MAT_DATE_LOCALE],
-    },
-    { provide: MAT_DATE_FORMATS, useValue: CUSTOM_DATE_FORMATS },
+   
+    // { provide: MAT_DATE_FORMATS, useValue: CUSTOM_DATE_FORMATS },
   ],
   bootstrap: [AppComponent],
 })
