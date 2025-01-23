@@ -1,0 +1,11 @@
+input.ng-invalid.ng-touched {
+  border-color: red;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.mat-form-field-required .mat-label {
+  color: red;
+}

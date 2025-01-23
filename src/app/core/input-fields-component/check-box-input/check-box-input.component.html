@@ -1,0 +1,8 @@
+<mat-checkbox [disabled]="isDisabled" [indeterminate]="isIndeterminate" [required]="isRequired" [ngModel]="value"
+    (change)="onCheckboxChange($event)" [color]="color" #checkBox="ngModel">
+    {{ labelText }}
+</mat-checkbox>
+
+<mat-error *ngIf="isRequired && control.touched && control.invalid">
+    {{title}} is required
+</mat-error>

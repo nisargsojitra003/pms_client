@@ -1,0 +1,11 @@
+<mat-form-field appearance="outline" class="w-100">
+    <mat-label>{{ label }}</mat-label>
+    <textarea matInput [type]="type" [(ngModel)]="value" [required]="isRequired" [pattern]="pattern"
+        [maxlength]="maxLength" [placeholder]="placeholder" [ngClass]="{'ng-dirty': control?.dirty}"
+        (ngModelChange)="onChange($event)" (blur)="onBlur()">
+    </textarea>
+    <mat-error *ngIf="errorMessage">
+        {{ errorMessage }}
+    </mat-error>
+
+</mat-form-field>

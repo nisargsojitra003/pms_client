@@ -1,0 +1,57 @@
+.form-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.custom-ng-select {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+  background-color: #fff;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.custom-ng-select:hover {
+  border-color: #80bdff;
+}
+
+.custom-ng-select:focus-within {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.ng-dropdown-panel {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+}
+
+.ng-option {
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #495057;
+  cursor: pointer;
+}
+
+.ng-option:hover {
+  background-color: #f8f9fa;
+}
+
+.ng-option.ng-option-selected {
+  background-color: #007bff;
+  color: white;
+}
+
+.ng-select .ng-placeholder {
+  color: #6c757d;
+  font-size: 16px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 5px;
+}

@@ -1,0 +1,16 @@
+<label for="file" class="form-label">{{labelText}}</label>
+<input [ngClass]="(image.touched && !file && isRequired)|| ( fileError !== '' && !file && isRequired) ? 'is-invalid' : ''"
+    (change)="onFileChange($event)" [(ngModel)]="file" name="image" id="file" type="file" [required]="isRequired"
+    [disabled]="isDisabled" class="form-control" #image="ngModel" [multiple]="isMultipleFiles"
+    [accept]="allowedTypes"/>
+
+<ng-container *ngIf="!isMultipleFiles && isImageSelected && isShowPreview && file">
+    <img *ngIf="isImageSelected" [src]="imagePreviewSrc" class="img-fluid preview-image mt-3" alt="...">
+</ng-container>
+
+<span class="text-danger" *ngIf="fileError">
+    {{ fileError }}
+</span>
+<span class="text-danger" *ngIf="!fileError && !file && isRequired && control.invalid && (control.touched || control.dirty)">
+    {{labelText}} is required
+</span>

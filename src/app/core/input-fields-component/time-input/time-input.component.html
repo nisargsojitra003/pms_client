@@ -1,0 +1,11 @@
+<mat-form-field appearance="outline" class="w-100">
+    <mat-label>Register Time</mat-label>
+    <input matInput [ngxTimepicker]="timepicker" [format]="timeFormat" [required]="isRequired" [disabled]="isDisabled" [(ngModel)]="timeValue"
+        #time="ngModel" name="registerTime" (ngModelChange)="onInputChange($event)" [readonly]="isReadOnly"/>
+    <mat-timepicker-toggle matSuffix></mat-timepicker-toggle>
+    <ngx-material-timepicker #timepicker [enableKeyboardInput]="isEnableUserTyping"></ngx-material-timepicker>
+
+    <mat-error *ngIf="isRequired && (time?.touched || time?.errors?.['required'])">
+        Please select a valid time
+    </mat-error>
+</mat-form-field>

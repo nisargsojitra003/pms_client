@@ -1,0 +1,15 @@
+.app-container {
+  height: 100vh;
+}
+
+.app-sidenav {
+  width: 250px;
+}
+
+.main-content {
+  padding: 16px;
+}
+
+mat-sidenav-content {
+  background-color: #f4f4f4;
+}

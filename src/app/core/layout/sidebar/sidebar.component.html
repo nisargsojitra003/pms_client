@@ -1,0 +1,18 @@
+<div>
+    <app-topbar #topbar (menuToggled)="toggle()"></app-topbar>
+
+    <mat-drawer-container>
+        <mat-drawer class="side-menu" mode="side" [opened]="opened">
+            <app-menu-item [menu]="menu"></app-menu-item>
+        </mat-drawer>
+
+        <mat-drawer-content [class.margin-left]="opened" style="padding-bottom: 60px;">
+            <div class="container-fluid">
+                <router-outlet></router-outlet>
+            </div>
+
+        </mat-drawer-content>
+    </mat-drawer-container>
+
+    <app-footer></app-footer>
+</div>

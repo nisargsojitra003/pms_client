@@ -1,0 +1,11 @@
+<mat-form-field appearance="outline" class="w-100">
+    <mat-label>{{ label }}</mat-label>
+    <input matInput [matDatepicker]="picker" (click)="picker.open()" (keydown)="false" [min]="minDate" [max]="maxDate" [(ngModel)]="dateValue" #date="ngModel"
+        (ngModelChange)="onInputChange($event)" [required]="isRequired" [disabled]="isDisabled" [readonly]="isReadOnly"/>
+    <mat-hint>MM-DD-YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="isRequired && (date?.touched || date?.errors?.['required'])">
+        Please select a valid date.
+    </mat-error>
+</mat-form-field>

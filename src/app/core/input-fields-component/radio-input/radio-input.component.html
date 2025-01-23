@@ -1,0 +1,10 @@
+<label>{{label}} :</label>
+<mat-radio-group name="radioGroup" [required]="isRequired" #radio="ngModel" [(ngModel)]="radiovalue"
+    (change)="change($event.value)">
+    <ng-container *ngFor="let option of options">
+        <mat-radio-button [value]="option.value">{{ option.name }}</mat-radio-button>
+    </ng-container>
+</mat-radio-group>
+<mat-error *ngIf="control.invalid && (control.dirty || control.touched)">
+    {{label}} is required
+</mat-error>

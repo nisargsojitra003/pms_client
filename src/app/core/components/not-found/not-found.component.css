@@ -1,0 +1,21 @@
+.container {
+    background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  }
+  
+  mat-card {
+    background: white;
+  }
+  
+  mat-icon.text-danger {
+    animation: shake 0.5s ease-in-out infinite alternate;
+  }
+  
+  @keyframes shake {
+    0% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(5deg);
+    }
+  }
+  

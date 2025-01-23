@@ -1,0 +1,15 @@
+<mat-form-field appearance="outline" class="w-100">
+    <mat-label>{{ label }}</mat-label>
+    <mat-select [(ngModel)]="value" #select="ngModel" (selectionChange)="onValueChange($event.value)"
+        [placeholder]="placeholder" [required]="isRequired" (blur)="onBlur()"
+        [ngClass]="{'ng-dirty': select.dirty, 'ng-touched': select.touched}">
+        <mat-option value="" >Select a {{ heading }}</mat-option>
+        <mat-option *ngFor="let option of options" [value]="option.id">
+            {{ option.name }}
+        </mat-option>
+    </mat-select>
+
+    <mat-error *ngIf="isRequired && control?.invalid && (control?.touched || control?.dirty)">
+        {{ errorMessage || (label + ' is required') }}
+    </mat-error>
+</mat-form-field>   

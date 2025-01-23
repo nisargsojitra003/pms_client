@@ -1,0 +1,105 @@
+<app-page-header icon="inventory">
+    <h2 class="mt-3">Add</h2>
+</app-page-header>
+
+<div class="shadow-lg p-3 px-4 ms-1 me-1 bg-white rounded" style="overflow-x: hidden;">
+    <form #form="ngForm" class="mt-3" (ngSubmit)="onSubmit(form)">
+        <div class="row">
+            <div class="col-12 col-md-6 mb-4">
+                <app-custom-input label="Name" placeholder="Ex. Mobile" name="name" [(ngModel)]="product.name"
+                    [maxLength]="40" required [pattern]="textOnly" [isRequired]="true" #nameCtrl="ngModel"
+                    [control]="nameCtrl">
+                </app-custom-input>
+            </div>
+            <div class="col-12 col-md-6 mb-4">
+                <app-select-input label="Category" [options]="categories" placeholder="Select a category"
+                    [isRequired]="true" heading="category" [(ngModel)]="product.category" name="category" required
+                    #categoryCtrl="ngModel" [control]="categoryCtrl">
+                </app-select-input>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 mb-4">
+                <app-text-area-input label="Desciption" placeholder="Ex. This is a great product" name="description"
+                    [(ngModel)]="product.description" [maxLength]="499" [pattern]="textAndNumberWithoutSpace" #desciptionCtrl="ngModel"
+                    [isRequired]="true" [control]="desciptionCtrl" required>
+                </app-text-area-input>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6 mb-4">
+                <app-date-input name="createdAt" label="Created At" [(ngModel)]="product.createdAt" #createdAt="ngModel"
+                    [isRequired]="true" [isReadOnly]="false" required>
+                </app-date-input>
+            </div>
+            <div class="col-12 col-md-6 mb-4">
+                <app-time-input [isRequired]="true" [isReadOnly]="true" [isEnableUserTyping]="false" [timeFormat]="12" required name="registerTime" [(ngModel)]="product.registerTime"
+                    #registerTime="ngModel">
+                </app-time-input>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6 mb-4">
+                <div class="form-group">
+                    <ng-select id="categorySelect" class="form-control searchSelect custom-ng-select"
+                        [items]="categories" name="otherCategory" [searchFn]="customSearchFn" bindLabel="name"
+                        [(ngModel)]="product.otherCategory" #otherCategory="ngModel" required>
+                    </ng-select>
+                    <span class="text-danger" *ngIf="otherCategory.invalid && (otherCategory.dirty || otherCategory.dirty)">other category is required</span>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 mb-4">
+                <app-custom-input type="text" label="Quantity" placeholder="Ex. 100" name="quantity" [(ngModel)]="product.quantity"
+                    [maxLength]="5" required [isRequired]="true" #quantityCtrl="ngModel"
+                    [control]="quantityCtrl" [isAppNumericValidator]="true">
+                </app-custom-input>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6 mb-4">
+                <app-radio-input [isRequired]="true" label="Tag" [options]="radioGroupOptions" [(ngModel)]="product.tag"
+                    name="tag" #tag="ngModel" required [control]="tag">
+                </app-radio-input>
+            </div>
+            <div class="col-12 col-md-6 mb-4">
+                <app-custom-input type="text" label="Price" placeholder="Ex. 100" name="price" [(ngModel)]="product.price"
+                    [maxLength]="8" required [isRequired]="true" #priceCtrl="ngModel"
+                    [control]="priceCtrl" [isDecimalNumericValidator]="true">
+                </app-custom-input>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6 mb-4">
+                <app-check-box-input name="isPrimary" [(ngModel)]="product.isPrimary" #checkBox="ngModel" title="This"
+                    labelText="Product is primary?" [isDisabled]="false" [isIndeterminate]="false" color="primary"
+                    [isRequired]="true" required [control]="checkBox">
+                </app-check-box-input>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 mb-4">
+                <app-file-input [maxSizeInMb]="5" labelText="Image" name="image" [(ngModel)]="product.image" #image="ngModel" required
+                    [isMultipleFiles]="false" [isRequired]="true" [isDisabled]="false" [allowedTypes]="allowedTypes"
+                    [isShowPreview]="true" [control]="image">
+                </app-file-input>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 d-flex justify-content-end align-items-center">
+                <button type="submit" mat-raised-button color="primary" class="px-4 py-2">
+                    Save
+                </button>
+                <button [routerLink]="cancelButtonRoute" class="ms-3 px-4 py-2" type="button" mat-raised-button color="warn">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
